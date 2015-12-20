@@ -1,6 +1,7 @@
 <?php
 
-class LinksWidget extends Widget {
+class LinksWidget extends Widget
+{
 
     private static $db        = array(
     );
@@ -23,7 +24,8 @@ class LinksWidget extends Widget {
      */
     private static $description = "Display a list of links on pages.";
 
-    public function getCMSFields() {
+    public function getCMSFields()
+    {
         $fields = parent::getCMSFields();
 
         $fields->addFieldToTab("Root.Main", new TextField('WidgetLabel', 'Widget Label'), "Enabled");
@@ -48,11 +50,13 @@ class LinksWidget extends Widget {
         return $fields;
     }
 
-    public function Title() {
+    public function Title()
+    {
         return $this->WidgetLabel;
     }
 
-    public function Form() {
+    public function Form()
+    {
         $form = false;
         if ($this->FormPage()) {
             $result = new UserDefinedForm_Controller($this->FormPage());
@@ -61,5 +65,4 @@ class LinksWidget extends Widget {
         }
         return $form;
     }
-
 }
